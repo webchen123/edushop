@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4 text-center h2">添加管理员</div>
@@ -28,6 +29,7 @@
       <input type="phone" class="form-control" name="phone"  id="phone" placeholder="电话">
     </div>
     <button type="submit" class="btn btn-default">提交</button>
+    <button type="cancel" class="btn btn-default">取消</button>
     </form>
   </div>
   <div class="col-md-4"></div>
