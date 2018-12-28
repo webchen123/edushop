@@ -84,7 +84,7 @@ class Manager extends CI_Controller {
             $this->load->view("admin/notice.php",array('url'=>"/admin/manager/addmanager",'msg'=>$msg,'status'=>'0'));
         }
     }
-    public function doaddManager(){
+    public function doeditManager(){
         $this->load->library('form_validation');
         $this->load->database();
         $this->load->library('encryption');
@@ -149,6 +149,8 @@ class Manager extends CI_Controller {
         }
     }
     public function index(){
-
+        $this->load->view('admin/head.php')
+        $this->load->view('admin/index.php')
+        $this->load->view('admin/foot.php')
     }
 }
