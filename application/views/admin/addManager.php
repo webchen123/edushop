@@ -27,7 +27,12 @@
       <label for="phone">电话</label>
       <input type="phone" class="form-control" name="phone"  id="phone" placeholder="电话">
     </div>
-    <button type="submit" class="btn btn-default">提交</button>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="status" checked ="checked"> 是否启用
+      </label>
+    </div>
+    <button type="submit" class="btn btn-success"">提交</button>
     </form>
   </div>
   <div class="col-md-4"></div>

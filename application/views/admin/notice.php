@@ -14,19 +14,18 @@
     
     <div class="row">
       <div class="col-md-4"></div>
-      <div class="col-md-4 text-center">
-        <div class="alert <?php echo $status? 'alert-success':'';'alert-danger' ?>" role="alert">
-          <p class="text-center h3"><?php echo $msg;?></p>
-          <a href="<?php echo $url;?>" class="alert-link">5秒后自动跳转或点击直接跳转</a>
+      <div class="col-md-4 text-center"  style="font-color:white;">
+        <div class="alert <?php echo $status? 'alert-success':'alert-danger'; ?>" role="alert">
+          <p class="text-center h3" ><?php echo $msg;?></p>
+          <a href="<?php echo $url;?>" class="alert-link">3秒后自动跳转或点击直接跳转</a>
         </div>
       </div>
       <div class="col-md-4"></div>
     </div>
     <script >
-        window.setTimeout(jump('<?php echo $url?>'), 5000);    
-        function jump(url){
-            window.location.href=url;
-        }
+        setTimeout(function jump(){
+            window.location.href='<?php echo $url;?>';
+        },3000);    
     </script>
 </body>
 </html>
