@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-12-24 17:13:33
+Date: 2019-01-02 17:35:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -64,6 +64,7 @@ CREATE TABLE `zs_classtype` (
   `pid` varchar(255) NOT NULL DEFAULT '0' COMMENT '上级类型id id-pid',
   `name` varchar(255) NOT NULL COMMENT '课程类型名',
   `img` varchar(255) NOT NULL COMMENT '分类图片',
+  `path` varchar(255) NOT NULL DEFAULT '' COMMENT '类别路径',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COMMENT='课程类型表';
 
@@ -94,17 +95,20 @@ CREATE TABLE `zs_comment` (
 DROP TABLE IF EXISTS `zs_manager`;
 CREATE TABLE `zs_manager` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `acount` varchar(255) NOT NULL DEFAULT '' COMMENT '登录名',
+  `acount` varchar(24) NOT NULL DEFAULT '' COMMENT '登录名',
   `phone` char(11) NOT NULL DEFAULT '',
   `passwd` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL COMMENT '姓名',
   `time` datetime DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否禁用',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `acount` (`acount`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of zs_manager
 -- ----------------------------
+INSERT INTO `zs_manager` VALUES ('3', 'admin', '18224577267', 'e10adc3949ba59abbe56e057f20f883e', 'admins122', '2018-12-29 07:16:46', '1');
 
 -- ----------------------------
 -- Table structure for zs_member
@@ -114,8 +118,8 @@ CREATE TABLE `zs_member` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `phone` char(11) NOT NULL COMMENT '手机号',
   `passwd` varchar(255) DEFAULT '' COMMENT '密码',
-  `name` varchar(255) DEFAULT '',
-  `sex` enum('0','1') DEFAULT NULL COMMENT '性别',
+  `name` varchar(24) DEFAULT '' COMMENT '昵称',
+  `sex` enum('0','1') DEFAULT '1' COMMENT '性别',
   `qq` varchar(255) DEFAULT '',
   `wechat` varchar(255) DEFAULT '' COMMENT '微信号码',
   `hkadd` varchar(255) DEFAULT '' COMMENT '户口地址',
@@ -126,12 +130,15 @@ CREATE TABLE `zs_member` (
   `edu` enum('5','4','3','2','1') DEFAULT '1' COMMENT '学历',
   `source` varchar(255) DEFAULT '' COMMENT '来源',
   `time` datetime DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `status` enum('1','0') DEFAULT '1' COMMENT '是否禁用',
+  PRIMARY KEY (`id`,`phone`),
+  UNIQUE KEY `phone` (`phone`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of zs_member
 -- ----------------------------
+INSERT INTO `zs_member` VALUES ('1', '18224577267', 'e10adc3949ba59abbe56e057f20f883e', 'user1', '1', '', '', '', '', '', '', '', '1', '后台添加', '2019-01-02 06:55:48', '1');
 
 -- ----------------------------
 -- Table structure for zs_order
