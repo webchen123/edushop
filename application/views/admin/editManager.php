@@ -1,7 +1,7 @@
 
 <div class="row">
   <div class="col-md-4"></div>
-  <div class="col-md-4 text-center h2">添加管理员</div>
+  <div class="col-md-4 text-center h2">修改管理员信息</div>
   <div class="col-md-4"></div>
 </div>
 <div class="row">
@@ -30,11 +30,10 @@
     </div>
     <div class="checkbox">
       <label>
-        <input type="checkbox" name="status" <?php echo $data['status']?'checked="checked"':'';?>> 是否启用
+        <input type="radio" name="status" <?php echo $data['status']?'checked="checked"':'';?>> 是否启用
       </label>
     </div>
     <button type="submit" class="btn btn-success"">提交</button>
-    <button type="cancel" class="btn btn-danger">取消</button>
     </form>
   </div>
   <div class="col-md-4"></div>

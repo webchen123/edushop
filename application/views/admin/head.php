@@ -28,29 +28,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </ul>
             </li>
           </ul>
+
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员管理 <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">会员管理 <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">管理员列表</a></li>
-                <li><a href="#">添加管理员</a></li>
+                <li><a href="/admin/user/">会员列表</a></li>
+                <li><a href="/admin/user/addUser">添加会员</a></li>
               </ul>
             </li>
           </ul>
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员管理 <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">订单管理 <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">管理员列表</a></li>
-                <li><a href="#">添加管理员</a></li>
+                <li><a href="#">订单列表</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商品管理 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">添加商品</a></li>
               </ul>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['acount'] ?> (<?php echo $_SESSION['name'] ?>)<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">修改密码</a></li>
+                <li><a href="#">信息修改</a></li>
                 <li><a href="#">退出登录</a></li>
               </ul>
             </li>

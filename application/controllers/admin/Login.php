@@ -50,7 +50,7 @@ class Login extends CI_Controller {
                 $query = $this->db->get_where('zs_manager',array('acount'=>$acount,'passwd'=>$passwd));
                 if($res = $query->result_array()){
                     $this->session->set_userdata($res[0]);
-                    $this->load->view("admin/notice.php",array('url'=>"/admin/manager/",'msg'=>"登录成功",'status'=>'1'));
+                    header('Location:/admin/manager');
                 }else{
                     $this->load->view("admin/notice.php",array('url'=>"/admin/login",'msg'=>"登录失败\r\n检查账号密码",'status'=>'0'));
                 }
