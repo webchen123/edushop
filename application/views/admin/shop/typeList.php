@@ -10,26 +10,33 @@
       <tdead>
         <tr style="font-weight: bold;">
           <td>#</td>
-          <td>登录名</td>
-          <td>姓名</td>
-          <td>电话</td>
-          <td>注册时间</td>
-          <td>是否禁用</td>
+          <td>分类名称</td>
+          <td>分类级别</td>
+          <td>分类图片</td>
+          <td>分类备注</td>
+          <td>添加时间</td>
           <td>操作</td>
         </tr>
       </tdead>
       <tbody>
-        <?php foreach ($data as  $v): ?>
+        <?php foreach ($type as  $v): ?>
           <tr>
             <td scope="row"><?php echo $v['id'] ?></td>
-            <td><?php echo $v['acount'] ?></td>
             <td><?php echo $v['name'] ?></td>
-            <td><?php echo $v['phone'] ?></td>
+            <td><?php echo $v['pid']?'二级分类':'一级分类'; ?></td>
+            <td style="width: 72px;"><img src="<?php echo $v['img'] ?>"   class="img-rounded img-responsive"> </td>
+            <td><?php echo $v['recode'] ?></td>
             <td><?php echo $v['time'] ?></td>
-            <td><?php echo $v['status']?'正常':'禁用'; ?></td>
             <td>
-              <button type="button" class="btn btn-link"><a href="/admin/manager/editManager?id=<?php echo $v['id']?>">修改</a></button>
-              <button type="button" class="btn btn-info " id="delManager">删除</button>
+              <button type="button" class="btn btn-success"><a href="/admin/shop/edittype?id=<?php echo $v['id']?>" style="color:white;">修改</a></button>
+              <?php 
+                if(!$v['pid']){
+               ?>
+                  <button type="button" class="btn btn-info"><a href="/admin/shop/typelist?pid=<?php echo $v['id']?>" style="color:white;">查看子类</a></button>
+              <?php 
+                }
+                ?>
+              <button type="button" class="btn btn-link" id="delType">删除</button>
             </td>
           </tr>
         <?php endforeach ?>
@@ -39,11 +46,11 @@
   <div class="col-md-2"></div>
 </div>
 <script >
-  $('#delManager').click(function(){
+  $('#delType').click(function(){
     var tr = $(this).parents('tr');
     var id = $(this).parents('tr').children().first().text();
     $.ajax({
-      url:'/admin/manager/delManager',
+      url:'/admin/shop/delType',
       data:{'id':id},
       success:function(res){
         if(res){

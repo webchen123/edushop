@@ -50,6 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商品管理 <span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li><a href="/admin/shop/typelist?pid=0">分类列表</a></li>
+                <li><a href="/admin/shop/addtype">添加分类</a></li>
+                <li><a href="">商品列表</a></li>
                 <li><a href="#">添加商品</a></li>
               </ul>
             </li>
