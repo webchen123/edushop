@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4">
-    <form action="/admin/shop/doeditType" method="post" enctype="multipart/form-data">
+    <form action="/admin/type/doeditType" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="name">分类名称</label>
       <input type="text" class="form-control"  name="name" id="name" value="<?php echo $type['name']?> ">

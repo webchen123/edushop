@@ -28,15 +28,15 @@
             <td><?php echo $v['recode'] ?></td>
             <td><?php echo $v['time'] ?></td>
             <td>
-              <button type="button" class="btn btn-success"><a href="/admin/shop/edittype?id=<?php echo $v['id']?>" style="color:white;">修改</a></button>
+              <button type="button" class="btn btn-success"><a href="/admin/type/edittype?id=<?php echo $v['id']?>" style="color:white;">修改</a></button>
               <?php 
                 if(!$v['pid']){
                ?>
-                  <button type="button" class="btn btn-info"><a href="/admin/shop/typelist?pid=<?php echo $v['id']?>" style="color:white;">查看子类</a></button>
+                  <button type="button" class="btn btn-info"><a href="/admin/type/typelist?pid=<?php echo $v['id']?>" style="color:white;">查看子类</a></button>
               <?php 
                 }
                 ?>
-              <button type="button" class="btn btn-link" id="delType">删除</button>
+              <button type="button" class="btn btn-link delType" >删除</button>
             </td>
           </tr>
         <?php endforeach ?>
@@ -46,21 +46,28 @@
   <div class="col-md-2"></div>
 </div>
 <script >
-  $('#delType').click(function(){
-    var tr = $(this).parents('tr');
-    var id = $(this).parents('tr').children().first().text();
-    $.ajax({
-      url:'/admin/shop/delType',
-      data:{'id':id},
-      success:function(res){
-        if(res){
-            tr.remove();
-
-            alert('删除成功');
-        }else{
-            alert('删除失败，联系管理员');
-        }
-      }      
+  $(function(){
+    $('.delType').click(function(){
+      var tr = $(this).parents('tr');
+      var id = $(this).parents('tr').children().first().text();
+      $.ajax({
+        url:'/admin/type/delType',
+        data:{'id':id},
+        success:function(res){
+          switch(res) {
+            case '0':
+              alert('删除失败，联系管理员');
+              break;
+            case '1':
+              tr.remove();
+              alert('删除成功');
+              break;
+            default :
+              alert('分类存在子类不可删除');
+              break;
+          }
+        }      
+      })
     })
   })
 </script>

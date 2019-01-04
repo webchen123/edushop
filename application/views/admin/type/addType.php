@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4">
-    <form action="/admin/shop/doaddtype" method="post">
+    <form action="/admin/type/doaddtype" method="post">
     <div class="form-group">
       <label for="type">所属分类</label>
       <select class="form-control" name="type" id='type'>

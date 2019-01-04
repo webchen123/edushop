@@ -26,7 +26,7 @@
             <td><?php echo $v['status']?'正常':'禁用'; ?></td>
             <td>
               <button type="button" class="btn btn-danger"><a style="color:white;" href="/admin/User/editUser?id=<?php echo $v['id']?>">修改</a></button>
-              <button type="button" class="btn btn-info " id="delUser">删除</button>
+              <button type="button" class="btn btn-info delUser" >删除</button>
               <button type="button" class="btn btn-primary">详情</button>
             </td>
           </tr>
@@ -37,7 +37,7 @@
   <div class="col-md-2"></div>
 </div>
 <script >
-  $('#delUser').click(function(){
+  $('.delUser').click(function(){
     var tr = $(this).parents('tr');
     var id = $(this).parents('tr').children().first().text();
     $.ajax({

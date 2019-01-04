@@ -29,7 +29,7 @@
             <td><?php echo $v['status']?'正常':'禁用'; ?></td>
             <td>
               <button type="button" class="btn btn-link"><a href="/admin/manager/editManager?id=<?php echo $v['id']?>">修改</a></button>
-              <button type="button" class="btn btn-info " id="delManager">删除</button>
+              <button type="button" class="btn btn-info delManager" >删除</button>
             </td>
           </tr>
         <?php endforeach ?>
@@ -39,7 +39,7 @@
   <div class="col-md-2"></div>
 </div>
 <script >
-  $('#delManager').click(function(){
+  $('.delManager').click(function(){
     var tr = $(this).parents('tr');
     var id = $(this).parents('tr').children().first().text();
     $.ajax({
