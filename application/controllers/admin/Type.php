@@ -60,7 +60,7 @@
             if($this->form_validation->run() == true){
                 $res = $this->db->insert('zs_classtype',$data);
                 if($res){
-                    $this->load->view("admin/notice.php",array('url'=>"/admin/type/typelist?pid=0",'msg'=>'分类添加成功','status'=>'1'));
+                    $this->load->view("admin/notice.php",array('url'=>"/admin/type/typelist?pid={$data['pid']}",'msg'=>'分类添加成功','status'=>'1'));
                 }else{
                     $this->load->view("admin/notice.php",array('url'=>"/admin/type/addtype",'msg'=>"分类添加失败\r\n联系管理员",'status'=>'0'));
                 }

@@ -10,32 +10,29 @@
       <tdead>
         <tr style="font-weight: bold;">
           <td>#</td>
-          <td>分类名称</td>
-          <td>分类级别</td>
-          <td>分类图片</td>
-          <td>分类备注</td>
+          <td>商品名称</td>
+          <td>所属类别</td>
+          <td>图片</td>
+          <td>价格</td>
+          <td>优惠价</td>
+          <td>优惠截止时间</td>
           <td>添加时间</td>
           <td>操作</td>
         </tr>
       </tdead>
       <tbody>
-        <?php foreach ($type as  $v): ?>
+        <?php foreach ($Shop as  $v): ?>
           <tr>
             <td scope="row"><?php echo $v['id'] ?></td>
-            <td><?php echo $v['name'] ?></td>
-            <td><?php echo $v['pid']?'二级分类':'一级分类'; ?></td>
-            <td style="width: 72px;"><img src="<?php echo $v['img'] ?>"   class="img-rounded img-responsive"> </td>
-            <td><?php echo $v['recode'] ?></td>
+            <td><?php echo $v['classname'] ?></td>
+            <td><?php echo $v['typename']; ?></td>
+            <td style="width: 72px;"><img src="<?php echo $v['pic'] ?>"   class="img-rounded img-responsive"> </td>
+            <td ><?php echo $v['price'] ?></td>
+            <td><?php echo $v['discount'] ?></td>
+            <td><?php echo $v['discountdate'] ?></td>
             <td><?php echo $v['time'] ?></td>
             <td>
-              <button type="button" class="btn btn-success"><a href="/admin/type/edittype?id=<?php echo $v['id']?>" style="color:white;">修改</a></button>
-              <?php 
-                if(!$v['pid']){
-               ?>
-                  <button type="button" class="btn btn-info"><a href="/admin/type/typelist?pid=<?php echo $v['id']?>" style="color:white;">查看子类</a></button>
-              <?php 
-                }
-                ?>
+              <button type="button" class="btn btn-success"><a href="/admin/shop/editshop?id=<?php echo $v['id']?>" style="color:white;">修改</a></button>
               <button type="button" class="btn btn-link delType" >删除</button>
             </td>
           </tr>
@@ -51,7 +48,7 @@
       var tr = $(this).parents('tr');
       var id = $(this).parents('tr').children().first().text();
       $.ajax({
-        url:'/admin/type/delType',
+        url:'/admin/shop/delShop',
         data:{'id':id},
         success:function(res){
           switch(res) {

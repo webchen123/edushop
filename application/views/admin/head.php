@@ -45,7 +45,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">订单管理 <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">订单列表</a></li>
+                <li><a href="/admin/order/">订单列表</a></li>
+                <li><a href="/admin/order/">待支付订单</a></li>
+                <li><a href="/admin/order/">支付未处理</a></li>
               </ul>
             </li>
           </ul>
